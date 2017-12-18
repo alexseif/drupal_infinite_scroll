@@ -1,0 +1,5 @@
+name = Infinite Scroll
+description = Provides a module for infinite scroll and updating the URL
+core = 7.x
+scripts[] = jquery.clever-infinite-scroll.js
+scripts[] = alx-infinite-scroll.js

@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function alx_infinite_scroll_menu()
+{
+  $items['node/get/ajax/%'] = array(
+    'page callback' => 'alx_infinite_scroll_ajax_get_ajax', // Render HTML.
+    'page arguments' => array(3),
+    'type' => MENU_CALLBACK,
+    'access arguments' => array('access content'),
+    'delivery callback' => 'alx_infinite_scroll_ajax_callback', // Magic goes here.
+  );
+  return $items;
+}
+
+function alx_infinite_scroll_ajax_get_ajax($nid)
+{
+  // This example loads a node and returns the teaser.
+  // You can return whatever you want, including forms.
+  $node = node_load($nid);
+  return node_view($node);
+}
+
+function alx_infinite_scroll_ajax_callback($page_callback_result)
+{
+  // Only render content
+  $content = drupal_render($page_callback_result);
+
+  // Add CSS and JS files, add some markup
+  $html = '<html><head><title></title>' . drupal_get_css() . drupal_get_js() . '</head><body class="jquery-ajax-load">' . $content . '</body></html>';
+  print $html;
+
+  // Perform end-of-request tasks.
+  drupal_page_footer();
+}
