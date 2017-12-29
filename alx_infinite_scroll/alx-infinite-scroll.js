@@ -3,14 +3,15 @@
  */
 
 
-//function alx_infinite_scroll_ajax_load() {
 (function ($) {
-  $('#content').cleverInfiniteScroll({
-    contentsWrapperSelector: '#content',
-    contentSelector: '.content',
-    nextSelector: '.flippy .next a',
-    loadImage: ''
-  });
+  Drupal.behaviors.alxInfiniteScroll = {
+    attach: function(){
+      $('#content').cleverInfiniteScroll({
+        contentsWrapperSelector: '#content',
+        contentSelector: '.content',
+        nextSelector: '.flippy .next a',
+        loadImage: ''
+      });
+    }
+  }
 })(jQuery);
-
-//}
