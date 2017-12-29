@@ -3,12 +3,14 @@
  */
 
 
-function alx_infinite_scroll_ajax_load() {
-  jQuery('#content').cleverInfiniteScroll({
+//function alx_infinite_scroll_ajax_load() {
+(function ($) {
+  $('#content').cleverInfiniteScroll({
     contentsWrapperSelector: '#content',
     contentSelector: '.content',
-    nextSelector: '#next',
+    nextSelector: '.flippy .next a',
     loadImage: ''
   });
-//  jQuery("#ajax-target").load("/node/get/ajax/2");
-}
+})(jQuery);
+
+//}
