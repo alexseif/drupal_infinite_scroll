@@ -10,7 +10,8 @@
                 contentsWrapperSelector: '.side_content',
                 contentSelector: '.node-news-article',
                 nextSelector: '.flippy .next a',
-                loadImage: drupal_get_path('module', 'alx_infinite_scroll') + '/images/ajax-loader.gif'
+                loadImage: ''
+//                loadImage: drupal_get_path('module', 'alx_infinite_scroll') + '/images/ajax-loader.gif'
             });
         }
     }
