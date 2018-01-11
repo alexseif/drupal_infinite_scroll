@@ -5,6 +5,10 @@
  */
 function alx_infinite_scroll_menu()
 {
+  $settings = array(
+    'loaderImgPath' => drupal_get_path('module', 'alx_infinite_scroll') + '/images/ajax-loader.gif',
+  );
+  drupal_add_js(array('alx_infinite_scroll' => $settings), 'setting');
   $items['node/get/ajax/%'] = array(
     'page callback' => 'alx_infinite_scroll_ajax_get_ajax', // Render HTML.
     'page arguments' => array(3),
@@ -29,7 +33,7 @@ function alx_infinite_scroll_ajax_callback($page_callback_result)
   $content = drupal_render($page_callback_result);
 
   // Add CSS and JS files, add some markup
-  $html = '<html><head><title></title>' . drupal_get_css() . drupal_get_js()  . '</head><body class="jquery-ajax-load">' . $content . '</body></html>';
+  $html = '<html><head><title></title>' . drupal_get_css() . drupal_get_js() . '</head><body class="jquery-ajax-load">' . $content . '</body></html>';
   print $html;
 //  
   // Perform end-of-request tasks.
